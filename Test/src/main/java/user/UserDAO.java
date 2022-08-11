@@ -6,13 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserDAO {
-	private Connection conn; //ÀÚ¹Ù¿Í DB ¿¬°á
-	private PreparedStatement pstmt; //Äõ¸®¹® ´ë±â ¹× ¼³Á¤
-	private ResultSet result; //°á°ú°ª ¹Ş¾Æ¿À±â
+	private Connection conn; //ìë°”ì™€ DB ì—°ê²°
+	private PreparedStatement pstmt; //ì¿¼ë¦¬ë¬¸ ëŒ€ê¸° ë° ì„¤ì •
+	private ResultSet result; //ê²°ê³¼ê°’ ë°›ì•„ì˜¤ê¸°
 	
-	//±âº» »ı¼ºÀÚ
-	//DAO°¡ ½ÇÇàµÇ¸é ÀÚµ¿À¸·Î »ı¼ºµÇ´Â ºÎºĞ
-	//¸Ş¼Òµå¸¶´Ù ¹İº¹µÇ´Â ÄÚµå¸¦ ÀÌ°÷¿¡ ³ÖÀ¸¸é	ÄÚµå°¡ °£¼ÒÈ­µÊ
+	//ê¸°ë³¸ ìƒì„±ì
+	//DAOê°€ ì‹¤í–‰ë˜ë©´ ìë™ìœ¼ë¡œ ìƒì„±ë˜ëŠ” ë¶€ë¶„
+	//ë©”ì†Œë“œë§ˆë‹¤ ë°˜ë³µë˜ëŠ” ì½”ë“œë¥¼ ì´ê³³ì— ë„£ìœ¼ë©´	ì½”ë“œê°€ ê°„ì†Œí™”ë¨
 	
 	public UserDAO() {
 		try {
@@ -27,25 +27,25 @@ public class UserDAO {
 	}
 	
 	public int login(String id, String pw) {
-		String sql = "SELECT id, pw FROM user where id = ?";
+		String sql = "SELECT pw FROM user where id = ?";
 		
 		try {
-			pstmt = conn.prepareStatement(sql); //Äõ¸®¹®À» ´ë±â ½ÃÅ´
-			pstmt.setString(1, id); //Ã¹¹øÂ° '?'¿¡ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¿Â id¸¦ ´ëÀÔÇÔ
+			pstmt = conn.prepareStatement(sql); //ì¿¼ë¦¬ë¬¸ì„ ëŒ€ê¸° ì‹œí‚´
+			pstmt.setString(1, id); //ì²«ë²ˆì§¸ '?'ì— ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì•„ì˜¨ idë¥¼ ëŒ€ì…í•¨
 			result = pstmt.executeQuery();
 			if(result.next()) {
 				if(result.getString(1).equals(pw)) {
-					return 1; //·Î±×ÀÎ ¼º°ø
+					return 1; //ë¡œê·¸ì¸ ì„±ê³µ
 				}
 				else {
-					return 0; //ºñ¹Ğ¹øÈ£ Æ²¸²
+					return 0; //ë¹„ë°€ë²ˆí˜¸ í‹€ë¦¼
 				}
 			}
-		return -1; //¾ÆÀÌµğ ¾øÀ½
+		return -1; //ì•„ì´ë”” ì—†ìŒ
 		}catch(Exception e){
 				e.printStackTrace();
 		}
-		return -2; //¿À·ù
+		return -2; //ì˜¤ë¥˜
 	}
 	
 	public int join(User user) {
