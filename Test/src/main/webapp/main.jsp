@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%
-		//¸ÞÀÎ ÆäÀÌÁö·Î ÀÌµ¿ÇßÀ» ¶§ ¼¼¼Ç¿¡ °ªÀÌ ´ã°ÜÀÖ´ÂÁö Ã¼Å©
+		//ë©”ì¸ íŽ˜ì´ì§€ë¡œ ì´ë™í–ˆì„ ë•Œ ì„¸ì…˜ì— ê°’ì´ ë‹´ê²¨ìžˆëŠ”ì§€ ì²´í¬
 		String userid = null;
 		if(session.getAttribute("id") != null){
 			userid = (String) session.getAttribute("id");
@@ -16,13 +16,15 @@
 		
 		if(userid == null){
 	%>
-	<button type="button" onclick = "location.href ='join.jsp'">È¸¿ø°¡ÀÔ</button>
-	<button type="button" onclick = "location.href ='login.jsp'">·Î±×ÀÎ</button>	
+	<button type="button" onclick = "location.href ='join.jsp'">íšŒì›ê°€ìž…</button>
+	<button type="button" onclick = "location.href ='login.jsp'">ë¡œê·¸ì¸</button>	
 	<%
 		}
 		else{
+			
 	%>
-	<button type="button" onclick = "location.href ='login.jsp'">·Î±×ÀÎ</button>	
+	<%=session.getAttribute("id") %>ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤
+	<button type="button" onclick = "location.href ='LogoutAction.jsp'">ë¡œê·¸ì•„ì›ƒ</button>	
 	<%
 		}
 	%>
