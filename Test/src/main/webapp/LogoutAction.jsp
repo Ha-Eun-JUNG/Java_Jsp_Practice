@@ -11,8 +11,8 @@
 		session.invalidate();
 	%>
 	<script>
-		alert("�α׾ƿ�");
-		location.href="main.jsp";
+		alert("로그아웃");
+		location.href="index.jsp";
 	</script>
 </body>
 </html>
