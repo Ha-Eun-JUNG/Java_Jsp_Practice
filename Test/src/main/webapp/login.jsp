@@ -8,10 +8,10 @@
 </head>
 <body>
  	<form method="post" action="LoginAction.jsp">
- 		<p>ทฮฑืภฮ</p>
- 		<input type="text" placeholder="พฦภฬต๐" name="ID">
- 		<input type="password" placeholder="บ๑นะน๘ศฃ" name="pw">
- 		<input type="submit" value="ทฮฑืภฮ">
+ 		<p>๋ก๊ทธ์ธ</p>
+ 		<input type="text" placeholder="์•์ด๋””" name="id">
+ 		<input type="password" placeholder="๋น๋ฐ€๋ฒํธ" name="pw">
+ 		<input type="submit" value="๋ก๊ทธ์ธ">
  	</form>
 </body>
 </html>
