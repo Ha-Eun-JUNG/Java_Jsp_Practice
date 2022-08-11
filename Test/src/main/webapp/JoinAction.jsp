@@ -24,6 +24,18 @@
 </head>
 <body>
 	<%
+		String userid = null;
+		if(session.getAttribute("id") != null){
+			userid = (String) session.getAttribute("id");
+		}
+	
+		if(userid != null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('이미 로그인 되어있습니다')");
+			script.println("location.href='main.jsp'");
+			script.println("</script>");
+		}
 		if(user.getName()==null || user.getId() == null || user.getPw() == null){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
